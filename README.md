@@ -20,10 +20,11 @@ Solución:
 Para dar solución al problema propuesto se contemplaron las siguientes implementaciones:
 
 - Se crean todas las clases asociadas al modelo de negocio (Call, Customer, Employee, EmployeeType, Person).
-- Se crea el controlador CallCenterController para centralizar todo el funcionamiento asociado al problema, en el se pueden ver los empleados disponibles y las llamadas a procesar.
-- Tal como se menciona en el enunciado se crea la clase Dispatcher, que se encarga de lanzar los hilos correspondientes a las llamadas y de controlar la cantidad permitida simultaneamente.
+- Se crea el controlador CallCenterController para centralizar todo el funcionamiento asociado al problema, en él se pueden ver los empleados disponibles y las llamadas a procesar.
+- Tal como se menciona en el enunciado se crea la clase Dispatcher, que se encarga de lanzar los hilos correspondientes a las llamadas y de controlar la cantidad permitida simultaneamente de hilos.
 - Cuando se lanzan los hilos haciendo uso de ThreadPoolExecutor se procede a verificar la disponibilidad de los empleados y la prioridad establecidad.
 - Cuando se termina una llamada se libera el empleado para que este quede disponible y pueda contestar otra llamada.
+- Cuando ingresa una llamada esta espera hasta que se le pueda asignar un empleado, existe un limite de tiempo para esperar. Ya que el pool de hilos esta configurado a 10, se espera a que se libere uno y ya este pueda funcionar.
 - Se hace uso de varias utilidades dentro de java.util.concurrent.* tales como manejo de colas, pool de hilos, y algunas estructuras de datos tales como LinkedBlockingQueue (cola de llamadas) y PriorityBlockingQueue (cola de empleados priorizados) para la programación concurrente.
 
 ```
