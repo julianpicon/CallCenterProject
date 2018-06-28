@@ -23,14 +23,29 @@ Para dar solución al problema propuesto se contemplaron las siguientes implemen
 - Se crea el controlador CallCenterController para centralizar todo el funcionamiento asociado al problema, en el se pueden ver los empleados disponibles y las llamadas a procesar.
 - Tal como se menciona en el enunciado se crea la clase Dispatcher, que se encarga de lanzar los hilos correspondientes a las llamadas y de controlar la cantidad permitida simultaneamente.
 - Cuando se lanzan los hilos haciendo uso de ThreadPoolExecutor se procede a verificar la disponibilidad de los empleados y la prioridad establecidad.
-- Se hace uso de varias utilidades dentro de java.util.concurrent.* tales como manejo de colas, pool de hilos, y algunas estructuras de datos tales como LinkedBlockingQueue (cola de llamadas) y PriorityBlockingQueue (cola de empleados priorizados).
+- Cuando se termina una llamada se libera el empleado para que este quede disponible y pueda contestar otra llamada.
+- Se hace uso de varias utilidades dentro de java.util.concurrent.* tales como manejo de colas, pool de hilos, y algunas estructuras de datos tales como LinkedBlockingQueue (cola de llamadas) y PriorityBlockingQueue (cola de empleados priorizados) para la programación concurrente.
+
+```
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+```
+
 - Se crean las pruebas unitarias necesarias.
+
 ![Screenshot](UnitTests.png)
+
 - Cuando hay llamadas en cola, estas esperan cierto tiempo para ser atendidas y ver si algún empleado se libera, en llegado caso de que no, se lanza la siguiente excepción:
+
 ![Screenshot](NoEmployeesException.png)
 
-
-A continuación se muestra diagrama de clases:
+Diagrama de clases:
+------------------
 
 ![Screenshot](ClassDiagram.jpg)
 
