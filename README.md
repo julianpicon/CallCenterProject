@@ -40,6 +40,8 @@ import java.util.concurrent.BlockingQueue; //Queue - FIFO (First in, First out)
 Pruebas unitarias y de integración - JUnit
 ------------------------------------------
 
+Se realizan las siguientes pruebas unitarias para verificar el correcto funcionamiento de cada uno de los flujos críticos de la aplicación:
+
 ![Screenshot](UnitTests.png)
 
 - Adicional se verifica el porcentaje de cobertura de las pruebas realizadas usando Java Code Coverage Tools. El cual muestra un porcentaje del 85.5 % y un total de 652 líneas ejecutadas.
