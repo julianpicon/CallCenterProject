@@ -32,16 +32,16 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue; //Call Queue - FIFO
+import java.util.concurrent.PriorityBlockingQueue; //Customer Queue - By Priority
+import java.util.concurrent.BlockingQueue; //Queue - FIFO (First in, First out)
 ```
 
-- Se crean las pruebas unitarias necesarias.
+- Se crean las pruebas unitarias y de integración necesarias.
 
 ![Screenshot](UnitTests.png)
 
-- Adicional se verifica el porcentaje de cobertura de las pruebas realizadas usando Java Code Coverage Tools. El cual muestra un porcentaje del 85.5 %.
+- Adicional se verifica el porcentaje de cobertura de las pruebas realizadas usando Java Code Coverage Tools. El cual muestra un porcentaje del 85.5 % y un total de 652 líneas ejecutadas.
 
 ![Screenshot](JavaCodeCoverage.png)
 
