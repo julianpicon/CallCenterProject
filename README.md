@@ -41,6 +41,10 @@ import java.util.concurrent.BlockingQueue;
 
 ![Screenshot](UnitTests.png)
 
+- Adicional se verifica el porcentaje de cobertura de las pruebas realizadas usando Java Code Coverage Tools. El cual muestra un porcentaje del 85.5 %.
+
+![Screenshot](JavaCodeCoverage.png)
+
 - Cuando hay llamadas en cola, estas esperan cierto tiempo para ser atendidas y ver si algún empleado se libera, en llegado caso de que no, se lanza la siguiente excepción:
 
 ![Screenshot](NoEmployeesException.png)
@@ -57,3 +61,4 @@ Consideraciones:
 - JDK 8
 - JUnit 4
 - ObjectAid para generar diagramas UMLs en Eclipse.
+- Java Code Coverage Tools.
