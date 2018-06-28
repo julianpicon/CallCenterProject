@@ -2,15 +2,20 @@ package co.com.almundo.callcenter.main;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import co.com.almundo.callcenter.controller.CallCenterController;
 import co.com.almundo.callcenter.model.Call;
 import co.com.almundo.callcenter.test.util.TestUtil;
 
 public class Main {
 	
-	public static void main(String[] args) throws InterruptedException {
+	private static final Logger logger = LogManager.getLogger("CallCenterController");
+	
+	public static void main(String[] args) {
 		
-		System.out.println(" ---- Start main thread ---- ");
+		logger.info(" ---- Start main thread ---- ");
 		
 		final CallCenterController callCenterController = new CallCenterController();
 		TestUtil.getAllEmployees().forEach(callCenterController::addEmployee);
@@ -19,7 +24,7 @@ public class Main {
 		callCenterController.treatCalls();
 		callCenterController.terminateDispatch();
 		
-		System.out.println(" ---- End main thread ---- ");
+		logger.info(" ---- End main thread ---- ");
 		
 	}
 

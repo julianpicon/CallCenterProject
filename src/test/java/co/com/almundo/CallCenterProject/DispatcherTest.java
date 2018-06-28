@@ -2,7 +2,6 @@ package co.com.almundo.CallCenterProject;
 
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -89,12 +88,11 @@ public class DispatcherTest {
         assertEquals(10, executor.getCompletedTaskCount()); //Depende de los tiempos aleatorios.
     }
     
-    @Test 
+    @SuppressWarnings("rawtypes")
+	@Test 
     public void testNoEmployees() throws InterruptedException {
         TestUtil.getCalls(1).forEach(callCenterController::addCall);
-        final List<Future<?>> result = callCenterController.treatCalls();
-        final Dispatcher dispatcher = callCenterController.getDispatcher();
-        final ThreadPoolExecutor executor = dispatcher.getExecutor();
+        final List<Future> result = callCenterController.treatCalls();
         TimeUnit.SECONDS.sleep(TIMEOUT + 2);
         final FutureTask<?> futureTask = (FutureTask<?>) result.get(0);
         assertTrue(futureTask.isDone());

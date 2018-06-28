@@ -3,7 +3,6 @@ package co.com.almundo.callcenter.test.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import co.com.almundo.callcenter.model.Call;
 import co.com.almundo.callcenter.model.Customer;

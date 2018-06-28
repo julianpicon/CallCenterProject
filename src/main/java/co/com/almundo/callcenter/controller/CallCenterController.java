@@ -41,6 +41,7 @@ public class CallCenterController {
 		try {
 			this.employees.put(employee);
 		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 			logger.error("Error agregando empleando al call center ->", e);
 		}
 	}
@@ -49,16 +50,16 @@ public class CallCenterController {
 		try {
 			this.calls.put(call);
 		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 			logger.error("Error agregando llamada al call center ->", e);
 		}
 	}
 
-	public List<Future<?>> treatCalls() {
+	@SuppressWarnings("rawtypes")
+	public List<Future> treatCalls() {
 		logger.info("---- Iniciando procesamiento de llamadas ---");
 		this.dispatcher = new Dispatcher(this);
 		return calls.parallelStream().map(this.dispatcher::dispatchCall).collect(Collectors.toList());
-//		return this.calls.forEach(dispatcher::dispatchCall).collect(Collectors.toList());
-//		this.dispatcher.terminateDispatch();
 	}
 	
 	public void terminateDispatch() {
@@ -66,7 +67,7 @@ public class CallCenterController {
 	}
 
 	public Employee getNextAvailableEmployee() throws InterruptedException {
-		return this.employees.poll(TIMEOUT + 1, TIMEOUT_UNIT);
+		return this.employees.poll(TIMEOUT + 1L, TIMEOUT_UNIT);
 	}
 
 	public BlockingQueue<Call> getCalls() {

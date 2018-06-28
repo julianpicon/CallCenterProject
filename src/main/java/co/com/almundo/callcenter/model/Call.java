@@ -1,7 +1,6 @@
 package co.com.almundo.callcenter.model;
 
 import java.util.Random;
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;

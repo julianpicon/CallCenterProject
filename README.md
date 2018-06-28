@@ -1,11 +1,11 @@
-Ejercicio de Java:
+Ejercicio de Java
 -----------------
 
 El objetivo de este ejercicio es conocer cómo los candidatos a entrar a
 almundo.com usan herramientas básicas de Java y diseñan soluciones
 orientadas a objetos.
 
-Consigna:
+Consigna
 ---------
 
 Existe un call center donde hay 3 tipos de empleados: operador, supervisor
@@ -14,7 +14,7 @@ instancia debe ser atendida por un operador, si no hay ninguno libre debe
 ser atendida por un supervisor, y de no haber tampoco supervisores libres
 debe ser atendida por un director.
 
-Solución:
+Solución
 ---------
 
 Para dar solución al problema propuesto se contemplaron las siguientes implementaciones:
@@ -37,7 +37,8 @@ import java.util.concurrent.PriorityBlockingQueue; //Customer Queue - By Priorit
 import java.util.concurrent.BlockingQueue; //Queue - FIFO (First in, First out)
 ```
 
-- Se crean las pruebas unitarias y de integración necesarias.
+Pruebas unitarias y de integración - JUnit
+------------------------------------------
 
 ![Screenshot](UnitTests.png)
 
@@ -49,10 +50,31 @@ import java.util.concurrent.BlockingQueue; //Queue - FIFO (First in, First out)
 
 ![Screenshot](NoEmployeesException.png)
 
-Diagrama de clases:
-------------------
+Diagrama de clases - ObjectAid
+------------------------------
 
 ![Screenshot](ClassDiagram.jpg)
+
+Análisis de código - SonarQube 
+------------------------------
+
+Se realiza el análisis del código fuente del proyecto empleando la herramienta SonarQube el cual usa distintas herramientas de **análisis estático de código** fuente como Checkstyle, PMD o FindBugs para así obtener métricas acerca de la calidad del código.
+
+	- Detección de código duplicado.
+	- Falta de pruebas unitarias, falta de comentarios.
+	- Código spaghetti, complejidad ciclomática, alto acoplamiento.
+	- Tamaño de archivos de código.
+	- Tamaño de métodos.
+	- No adecuación a estándares y convenciones de código.
+	- Vulnerabilidades conocidas de seguridad.
+
+Se procede a ejecutar SonarQube desde Eclipse y se evidencian las siguientes observaciones del código realizado:
+
+![Screenshot](SonarQube-before.png)
+
+Y se proceden a realizar las correcciones sugeridas, tales como bloques de código en las clases inecesarios, uso de System.out.println.. entre otras.
+
+![Screenshot](SonarQube-after.png)
 
 Consideraciones:
 ----------------
@@ -60,5 +82,7 @@ Consideraciones:
 - Proyecto creado con Maven.
 - JDK 8
 - JUnit 4
-- ObjectAid para generar diagramas UMLs en Eclipse.
+- ObjectAid
 - Java Code Coverage Tools.
+- SonarQube 7.2
+- SonarLint (Integración a Eclipse)
