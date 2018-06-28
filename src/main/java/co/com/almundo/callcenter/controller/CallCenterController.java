@@ -17,8 +17,8 @@ import co.com.almundo.callcenter.model.Call;
 import co.com.almundo.callcenter.model.Employee;
 
 /**
- * @jpicon
- *
+ * Clase encargada de centralizar el funcionamiento de la funcionalidad
+ * CallCenter.
  */
 public class CallCenterController {
 	
@@ -37,7 +37,7 @@ public class CallCenterController {
 		this.calls = new LinkedBlockingQueue<>();
 	}
 	
-	public synchronized void addEmployee(final Employee employee) {
+	public void addEmployee(final Employee employee) {
 		try {
 			this.employees.put(employee);
 		} catch (InterruptedException e) {
@@ -65,7 +65,7 @@ public class CallCenterController {
 		this.dispatcher.terminateDispatch();
 	}
 
-	public synchronized Employee getNextAvailableEmployee() throws InterruptedException {
+	public Employee getNextAvailableEmployee() throws InterruptedException {
 		return this.employees.poll(TIMEOUT + 1, TIMEOUT_UNIT);
 	}
 

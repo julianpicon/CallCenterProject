@@ -24,7 +24,15 @@ Para dar solución al problema propuesto se contemplaron las siguientes implemen
 - Tal como se menciona en el enunciado se crea la clase Dispatcher, que se encarga de lanzar los hilos correspondientes a las llamadas y de controlar la cantidad permitida simultaneamente.
 - Cuando se lanzan los hilos haciendo uso de ThreadPoolExecutor se procede a verificar la disponibilidad de los empleados y la prioridad establecidad.
 - Se hace uso de varias utilidades dentro de java.util.concurrent.* tales como manejo de colas, pool de hilos, y algunas estructuras de datos tales como LinkedBlockingQueue (cola de llamadas) y PriorityBlockingQueue (cola de empleados priorizados).
+- Se crean las pruebas unitarias necesarias.
+![Screenshot](UnitTests.png)
+- Cuando hay llamadas en cola, estas esperan cierto tiempo para ser atendidas y ver si algún empleado se libera, en llegado caso de que no, se lanza la siguiente excepción:
+![Screenshot](NoEmployeesException.png)
 
+
+A continuación se muestra diagrama de clases:
+
+![Screenshot](ClassDiagram.jpg)
 
 Consideraciones:
 ----------------

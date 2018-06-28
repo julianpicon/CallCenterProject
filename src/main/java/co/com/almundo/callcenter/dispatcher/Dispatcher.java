@@ -11,6 +11,11 @@ import org.apache.logging.log4j.Logger;
 import co.com.almundo.callcenter.controller.CallCenterController;
 import co.com.almundo.callcenter.model.Call;
 
+/**
+ * Clase encargada de recibir las diferentes llamadas,
+ * generar los diferentes hilos de ejecución y administrar
+ * el pool de hilos.
+ */
 public class Dispatcher {
 	
 	private static final Integer TIMEOUT = 10;

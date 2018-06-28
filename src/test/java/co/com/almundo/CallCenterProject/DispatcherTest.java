@@ -84,9 +84,9 @@ public class DispatcherTest {
         callCenterController.treatCalls();
         final Dispatcher dispatcher = callCenterController.getDispatcher();
         final ThreadPoolExecutor executor = dispatcher.getExecutor();
-        TimeUnit.SECONDS.sleep(TIMEOUT + 1);
+        TimeUnit.SECONDS.sleep(TIMEOUT);
         
-        assertEquals(10, executor.getCompletedTaskCount());
+        assertEquals(10, executor.getCompletedTaskCount()); //Depende de los tiempos aleatorios.
     }
     
     @Test 
